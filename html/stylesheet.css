@@ -1,0 +1,39 @@
+/* CSS Document */
+
+li {
+ border-bottom: 1px solid black;
+ list-style: none;
+}
+
+.highlighted {
+	background-color:gray;
+}
+
+p {
+	color:white;
+}
+
+.inactive {
+	color:gray;
+}
+
+.forward {
+    height: 25px;
+    width: 80px;
+    border-radius:0;
+    background-color:#1040EB;
+}
+
+.back {
+    height: 25px;
+    width: 80px;
+    border-radius:0;
+    background-color:#E40D10;
+}
+
+.reset {
+    height: 25px;
+    width: 80px;
+    border-radius:0;
+    background-color:#1040EB;
+}
