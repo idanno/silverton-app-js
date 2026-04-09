@@ -120,9 +120,11 @@ body {
     text-align: center;
 }
 
-/* Give Sante Fe columns enough room so the header doesn't wrap */
+/* Give Sante Fe and El Paso columns enough room so headers don't wrap */
 ul#sfLumPrice,
-ul#sfCoalprice {
+ul#sfCoalprice,
+ul#epLumPrice,
+ul#epCoalprice {
     min-width: 5.5rem;
 }
 
