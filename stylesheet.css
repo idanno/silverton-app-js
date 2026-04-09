@@ -1,39 +1,310 @@
-/* CSS Document */
+/* Silverton Price Calculator - Modern Mining Theme */
 
-li {
- border-bottom: 1px solid black;
- list-style: none;
+/* === Reset & Base === */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #1a1a2e;
+    background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(72, 52, 30, 0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(30, 40, 72, 0.3) 0%, transparent 60%);
+    color: #e0d6c8;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* === Header === */
+.app-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.app-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #f0c56d;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(240, 197, 109, 0.2);
+}
+
+.app-header .subtitle {
+    font-size: 0.85rem;
+    color: #8a8299;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* === Turn Display === */
+#turn {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #2d2b55 0%, #1e1e3a 100%);
+    border: 1px solid rgba(240, 197, 109, 0.3);
+    border-radius: 10px;
+    padding: 12px 32px;
+    display: inline-block;
+    margin: 0 auto 24px;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.turn-wrapper {
+    text-align: center;
+}
+
+/* === Price Grid === */
+.price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 28px;
+}
+
+/* === Section Cards === */
+.section-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.section-header {
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Metals header */
+.section-card.metals .section-header {
+    background: linear-gradient(135deg, #8b6914 0%, #c9a227 50%, #8b6914 100%);
+    color: #1a1a2e;
+}
+
+/* Lumber header */
+.section-card.lumber .section-header {
+    background: linear-gradient(135deg, #2d5a27 0%, #4a8c3f 50%, #2d5a27 100%);
+    color: #e8f5e2;
+}
+
+/* Coal header */
+.section-card.coal .section-header {
+    background: linear-gradient(135deg, #333 0%, #555 50%, #333 100%);
+    color: #ccc;
+}
+
+.section-body {
+    display: flex;
+    padding: 8px;
+    gap: 4px;
+}
+
+/* === Commodity Columns (the ul elements) === */
+.section-body ul {
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Column header (commodity/market name) */
+.section-body ul li:first-child {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #c0b8a8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 4px;
+    border-bottom: 2px solid rgba(240, 197, 109, 0.2);
+    margin-bottom: 2px;
+    background: none;
+}
+
+/* Price rows */
+.section-body ul li {
+    padding: 5px 6px;
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 3px;
+    margin: 1px 0;
+}
+
+/* Last li (input row) */
+.section-body ul li:last-child {
+    border-bottom: none;
+    padding: 6px 2px 4px;
+}
+
+/* === Highlighted (active price) === */
 .highlighted {
-	background-color:gray;
+    background: linear-gradient(90deg, rgba(240, 197, 109, 0.25) 0%, rgba(240, 197, 109, 0.4) 50%, rgba(240, 197, 109, 0.25) 100%) !important;
+    color: #fff !important;
+    font-weight: 700;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(240, 197, 109, 0.15);
 }
 
-p {
-	color:white;
-}
-
+/* === Inactive prices === */
 .inactive {
-	color:gray;
+    color: rgba(255, 255, 255, 0.2) !important;
+    font-style: italic;
+}
+
+/* === Inputs === */
+.section-body input[type="text"] {
+    width: 48px;
+    padding: 4px 6px;
+    font-size: 0.85rem;
+    text-align: center;
+    border: 1px solid rgba(240, 197, 109, 0.3);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #f0c56d;
+    font-weight: 600;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.section-body input[type="text"]:focus {
+    outline: none;
+    border-color: #f0c56d;
+    box-shadow: 0 0 0 2px rgba(240, 197, 109, 0.2);
+}
+
+/* === p tags inside section headers (legacy from original HTML) === */
+p {
+    color: inherit;
+    margin: 0;
+}
+
+/* === Buttons === */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+button {
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s, filter 0.2s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
 }
 
 .forward {
-    height: 25px;
-    width: 80px;
-    border-radius:0;
-    background-color:#1040EB;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    height: auto;
+    width: auto;
+}
+
+.forward:hover {
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
 .back {
-    height: 25px;
-    width: 80px;
-    border-radius:0;
-    background-color:#E40D10;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    height: auto;
+    width: auto;
+}
+
+.back:hover {
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
 }
 
 .reset {
-    height: 25px;
-    width: 80px;
-    border-radius:0;
-    background-color:#1040EB;
+    background: linear-gradient(135deg, #475569 0%, #334155 100%);
+    color: #e2e8f0;
+    box-shadow: 0 4px 12px rgba(71, 85, 105, 0.3);
+    height: auto;
+    width: auto;
+}
+
+.reset:hover {
+    box-shadow: 0 6px 20px rgba(71, 85, 105, 0.4);
+}
+
+/* === Results Log === */
+#results {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: #8a8299;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#results:empty {
+    display: none;
+}
+
+/* === Scrollbar Styling === */
+#results::-webkit-scrollbar {
+    width: 6px;
+}
+
+#results::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#results::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+    .price-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 12px;
+    }
+
+    .app-header h1 {
+        font-size: 1.2rem;
+    }
 }
