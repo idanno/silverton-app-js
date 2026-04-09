@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel='stylesheet' type='text/css' href='stylesheet.css'/>
+	<script src="jquery.js"></script>
+	<script src="silverton.js"></script>
+	<title>Silverton Price Calc</title>
+</head>
+<body>
+
+<table>
+	<tr>
+    	<td align="center"><h1>Selling Price Chart<br>with automatic price change calculation</h1></td>
+    </tr>
+    <tr>
+    	<td align="center"><h1 id="turn">Turn 1</h1></td>
+    </tr>
+    <tr>
+       <td>
+       
+       		<table align="center" height="400">
+            	<tr bgcolor="#000000">
+                	<td colspan="3" align="center">
+                    <p>Metals</p>
+                  </td>
+                  <td colspan="5" align="center">
+                  	<p>Lumber</p>
+                  </td>
+                  <td colspan="5" align="center">
+                  	<p>Coal</p>
+                  </td>
+              </tr>
+            	<tr>
+	            	<td valign="top">
+                        <ul align="center" id="goldprice">
+							<li>Gold</li>
+                        	<li>350</li>
+                         <li>325</li>
+                         <li>300</li>
+                         <li>275</li>
+                         <li>250</li>
+                         <li>250</li>
+                         <li>225</li>
+                         <li>200</li>
+                         <li>175</li>
+                         <li>150</li>
+                         <li><form id="myForm"><input type="text" id="goldSold" size="5" value="0"></li>
+                        </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="copperprice">
+                        <li>Copper</li>
+                         	<li>400</li>
+                         <li>320</li>
+                         <li>280</li>
+                         <li>240</li>
+                         <li>200</li>
+                         <li>200</li>
+                         <li>160</li>
+                         <li>140</li>
+                         <li>120</li>
+                         <li>100</li>
+                          <li><input type="text" id="copperSold" size="5" value="0"></li>
+                    </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="silverprice">
+                        <li>Silver</li>
+                         	<li>400</li>
+                         <li>300</li>
+                         <li>240</li>
+                         <li>200</li>
+                         <li>200</li>
+                         <li>200</li>
+                         <li>180</li>
+                         <li>160</li>
+                         <li>120</li>
+                         <li>100</li>
+                         <li><input type="text" id="silverSold" size="5" value="0"></li>
+               		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="denLumPrice">
+                        <li>Denver</li>
+                         	<li class="inactive">300</li>
+                         <li class="inactive">240</li>
+                         <li>200</li>
+                         <li>160</li>
+                         <li>120</li>
+                         <li>100</li>
+                         <li>80</li>
+                         <li>60</li>
+                         <li>40</li>
+                         <li class="inactive">30</li>
+                          <li><input type="text" id="denLumSold" size="5" value="0"></li>
+              		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="slcLumPrice">
+                        <li>SLC</li>
+                         	<li>300</li>
+                         <li>240</li>
+                         <li>200</li>
+                         <li>160</li>
+                         <li>120</li>
+                         <li>100</li>
+                         <li>80</li>
+                         <li class="inactive">60</li>
+                         <li class="inactive">40</li>
+                         <li class="inactive">30</li>
+                          <li><input type="text" id="slcLumSold" size="5" value="0"></li>
+               		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="puebloLumPrice">
+                        <li>Pueblo</li>
+                         	<li class="inactive">300</li>
+                         <li class="inactive">240</li>
+                         <li>200</li>
+                         <li>160</li>
+                         <li>120</li>
+                         <li>100</li>
+                         <li>80</li>
+                         <li>60</li>
+                         <li>40</li>
+                         <li class="inactive">30</li>
+                           <li><input type="text" id="puebloLumSold" size="5" value="0"></li>
+              		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="sfLumPrice">
+                        <li>Sante Fe</li>
+                         	<li class="inactive">300</li>
+                         <li class="inactive">240</li>
+                         <li class="inactive">200</li>
+                         <li>160</li>
+                         <li>120</li>
+                         <li>100</li>
+                         <li>80</li>
+                         <li>60</li>
+                         <li>40</li>
+                         <li>30</li>
+                          <li><input type="text" id="sfLumSold" size="5" value="0"></li>
+               		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="epLumPrice">
+                        <li>El Paso</li>
+                         	<li class="inactive">300</li>
+                         <li class="inactive">240</li>
+                         <li>200</li>
+                         <li>160</li>
+                         <li>120</li>
+                         <li>100</li>
+                         <li>80</li>
+                         <li>60</li>
+                         <li>40</li>
+                         <li class="inactive">30</li>
+                          <li><input type="text" id="epLumSold" size="5" value="0"></li>
+               		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="denCoalprice">
+                        <li>Denver</li>
+                         	<li>140</li>
+                         <li>120</li>
+                         <li>100</li>
+                         <li>80</li>
+                         <li>60</li>
+                         <li>60</li>
+                         <li>40</li>
+                         <li>30</li>
+                         <li class="inactive">20</li>
+                         <li class="inactive">20</li>
+                           <li><input type="text" id="denCoalSold" size="5" value="0"></li>
+              		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="slcCoalprice">
+                        <li>SLC</li>
+                         	<li class="inactive">140</li>
+                         <li class="inactive">120</li>
+                         <li>100</li>
+                         <li>80</li>
+                         <li>60</li>
+                         <li>60</li>
+                         <li>40</li>
+                         <li>30</li>
+                         <li>20</li>
+                         <li>20</li>
+                           <li><input type="text" id="slcCoalSold" size="5" value="0"></li>
+               		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="puebloCoalprice">
+                        <li>Pueblo</li>
+                         	<li class="inactive">140</li>
+                         <li class="inactive">120</li>
+                         <li class="inactive">100</li>
+                         <li>80</li>
+                         <li>60</li>
+                         <li>60</li>
+                         <li>40</li>
+                         <li>30</li>
+                         <li>20</li>
+                         <li>20</li>
+                           <li><input type="text" id="puebloCoalSold" size="5" value="0"></li>
+               		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="sfCoalprice">
+                        <li>Sante Fe</li>
+                         	<li class="inactive">140</li>
+                         <li>120</li>
+                         <li>100</li>
+                         <li>80</li>
+                         <li>60</li>
+                         <li>60</li>
+                         <li>40</li>
+                         <li>30</li>
+                         <li>20</li>
+                         <li class="inactive">20</li>
+                            <li><input type="text" id="sfCoalSold" size="5" value="0"></li>
+              		 </ul>
+                  </td>
+	            	<td valign="top">
+       					<ul align="center" id="epCoalprice">
+                        <li>El Paso</li>
+                         	<li>140</li>
+                         <li>120</li>
+                         <li>100</li>
+                         <li>80</li>
+                         <li>60</li>
+                         <li>60</li>
+                         <li>40</li>
+                         <li>30</li>
+                         <li class="inactive">20</li>
+                         <li class="inactive">20</li>
+                            <li><input type="text" id="epCoalSold" size="5" value="0"></form></li>
+              		 </ul>
+                  </td>
+                </tr>
+           </table>
+           
+           
+       </td>
+	</tr>
+</table>
+<BR><BR>
+<table><tr>
+<td valign="top">
+<button class="reset" onclick="resetForms()">Reset</button>
+</td>
+<td valign="top">
+<button class="back" onclick="stepBack()">Step Back</button>
+</td>
+<td valign="top">
+<button class="forward" onclick="nextRound()">Next Round</button>
+</td></tr></table>
+
+<span id="results"></span>
+
+
+</body>
+
+
+
+
+</html>
