@@ -120,6 +120,12 @@ body {
     text-align: center;
 }
 
+/* Give Sante Fe columns enough room so the header doesn't wrap */
+ul#sfLumPrice,
+ul#sfCoalprice {
+    min-width: 5.5rem;
+}
+
 /* Column header (commodity/market name) */
 .section-body ul li:first-child {
     font-weight: 600;
